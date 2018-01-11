@@ -1,0 +1,41 @@
+<div id="user-index" class="homepage weui-tab">
+  <div class="weui-cells">
+    <a class="user-msg weui-cell weui-cell_access" routerLink="/user_msg">
+      <div class="weui-cell__hd user-head"><img [src]="userData.headimgurl"></div>
+      <div class="weui-cell__bd">
+        <p class="user-name">{{ userData.nickname }}</p>
+        <p>{{ userData.identity }}</p>
+      </div>
+      <div class="weui-cell__ft"></div>
+    </a>
+  </div>
+  <div class="weui-cells">
+    <a class="weui-cell weui-cell_access">
+      <div class="weui-cell__hd"><span class="notice"></span></div>
+      <div class="weui-cell__bd">通知
+        <span *ngIf="news" class="weui-badge" style="vertical-align: top;margin-left: 5px;">{{ news }}</span>
+      </div>
+      <div class="weui-cell__ft"></div>
+    </a>
+  </div>
+  <div class="weui-cells">
+    <a class="weui-cell weui-cell_access" >
+      <div class="weui-cell__hd"><span class="net"></span></div>
+      <div class="weui-cell__bd">
+        <p>滤网</p>
+      </div>
+      <div class="weui-cell__ft"></div>
+    </a>
+  </div>
+  <div class="weui-cells">
+    <a class="weui-cell weui-cell_access">
+      <div class="weui-cell__hd"><span class="contact"></span></div>
+      <div class="weui-cell__bd">
+        <p>联系兆晶</p>
+      </div>
+      <div class="weui-cell__ft"></div>
+    </a>
+  </div>
+</div>
+
+<my-footer></my-footer>

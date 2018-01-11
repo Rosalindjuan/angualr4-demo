@@ -1,0 +1,58 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+//    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "module": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+
+  },
+  "files": [
+    "src/app/app.module.ts",
+    "src/main.ts"
+  ],
+
+  "angularCompilerOptions": {
+    "genDir": "aot",  // 编译文件放在aot目录下
+    "skipMetadataEmit" : true // 阻止编译器为编译后的应用生成元数据文件
+  }
+}
+//
+//
+//{
+//  "compilerOptions": {
+//    "target": "es5",
+//    "module": "es2015",
+//    "moduleResolution": "node",
+//    "sourceMap": true,
+//    "emitDecoratorMetadata": true,
+//    "experimentalDecorators": true,
+//    "lib": ["es2015", "dom"],
+//    "noImplicitAny": true,
+//    "suppressImplicitAnyIndexErrors": true,
+//    "typeRoots": [
+//      "./node_modules/@types/"
+//    ]
+//  },
+//
+//  "files": [
+//    "src/app/app.module.ts",
+//    "src/main.ts"
+//  ],
+//
+//  "angularCompilerOptions": {
+//    "genDir": "aot",  // 编译文件放在aot目录下
+//    "skipMetadataEmit" : true // 阻止编译器为编译后的应用生成元数据文件
+//  }
+//}

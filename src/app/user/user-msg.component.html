@@ -1,0 +1,22 @@
+<div class="weui-tab slideIn">
+	<div class="weui-cells">
+        <a class="weui-cell weui-cell_access" href="javascript:;">
+            <div class="weui-cell__bd">
+                <p>头像</p>
+           	</div>
+          	<div class="weui-cell__ft user-head"><img src="{{ user_data.headimgurl }}"></div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="javascript:;">
+            <div class="weui-cell__bd">
+                <p>名字</p>
+           	</div>
+          	<div class="weui-cell__ft">{{ user_data.nickname }}</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="javascript:;">
+            <div class="weui-cell__bd">
+                <p>身份</p>
+           	</div>
+          	<div class="weui-cell__ft">{{ user_data.identity }}{{ user_data.power }}</div>
+        </a>
+    </div>
+</div>
