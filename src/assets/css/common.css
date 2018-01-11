@@ -582,8 +582,8 @@ button[disabled] {
   margin-bottom: 30px;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation: rotateLoading 3s infinite linear;
-  animation: rotateLoading 3s infinite linear;
+  -webkit-animation: rotateLoading 1.5s infinite linear;
+  animation: rotateLoading 1.5s infinite linear;
 }
 
 .route > img {
