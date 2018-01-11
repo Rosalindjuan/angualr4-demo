@@ -1,0 +1,24 @@
+<div class="weui-tab slideIn">
+  <div class="weui-cells margin-top0" *ngIf="notice">
+    <div class="weui-cell weui-cell_access">
+      <div class="weui-cell__bd">
+        <p>{{ notice.title }}</p>
+        <i>{{ notice.time }}</i>
+      </div>
+    </div>
+    <div class="weui-cell">
+      <div class="weui-cell__bd article">
+        <p>{{ notice.content }}</p>
+      </div>
+    </div>
+  </div>
+  <a href="javascript:void(0);" class="delete-button" (click)="delete()">删&nbsp;除</a>
+</div>
+
+<div *ngIf="delete_prompt">
+  <div class="weui-mask_transparent"></div>
+  <div class="weui-toast">
+    <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+    <p class="weui-toast__content">已删除</p>
+  </div>
+</div>

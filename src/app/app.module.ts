@@ -8,18 +8,13 @@ import {AppComponent} from './app.component';
 import {DeviceIndexComponent} from "./index/device-index.component";
 import {FooterComponent} from "./footer/footer.component";
 import {UserIndexComponent} from "./user/user-index.component";
-import {UserMsgComponent} from "./user/user-msg.component";
-import {HomeComponent} from "./home/home";
-
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     DeviceIndexComponent,
-    UserIndexComponent,
-    UserMsgComponent,
-    HomeComponent
+    UserIndexComponent
   ],
   imports: [
     BrowserModule,

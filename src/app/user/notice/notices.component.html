@@ -1,0 +1,23 @@
+<div class="weui-tab slideIn"
+     infinite-scroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="500"
+     (scrolled)="onScrollDown()">
+  <div class="weui-cells margin-top0" *ngIf="notices">
+    <a class="weui-cell weui-cell_access" *ngFor='let notice of notices' [routerLink]="['/notice', notice.id]">
+      <div class="weui-cell__bd" [class.readed]="notice.readed">
+        <p>{{ notice.title }}</p>
+        <i>{{ notice.time }}</i>
+      </div>
+      <div class="weui-cell__ft"></div>
+    </a>
+  </div>
+  <div *ngIf="loadmore" class="weui-loadmore loadmore">
+    <i class="weui-loading"></i>
+    <span class="weui-loadmore__tips">正在加载</span>
+  </div>
+  <div *ngIf="noData" class="weui-loadmore weui-loadmore_line"
+       style="position: static;top: inherit;left: inherit;margin-bottom: 0">
+    <span class="weui-loadmore__tips" style="background-color: #f4f4f4;">暂无数据</span>
+  </div>
+</div>

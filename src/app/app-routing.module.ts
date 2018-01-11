@@ -3,18 +3,16 @@ import {Routes, RouterModule} from "@angular/router";
 
 import {DeviceIndexComponent} from "./index/device-index.component";
 import {UserIndexComponent} from "./user/user-index.component";
-import {UserMsgComponent} from "./user/user-msg.component";
-import {HomeComponent} from "./home/home";
-
-
+// import {NoticeComponent} from "./user/notice/notice.component";
+import {ContactUsModule} from "./user/contact-us/contact-us.module";
 
 const routes: Routes = [
   {path: '', redirectTo: 'index', pathMatch: 'full'},
   {path: 'index', component: DeviceIndexComponent, data: {title: '我的设备'}},
   {path: 'user', component: UserIndexComponent, data: {title: '用户中心'}},
-  // {path: 'user_msg', component: UserMsgComponent, data: {title: '个人信息'}},
-  // {path: 'dashboard', component: DashboardComponent},
-  // {path: 'detail/:id', component: HeroDetailComponent},
+  {path: 'user_msg', loadChildren: './user/user-msg/user-msg.module#UserMsgModule'},
+  {path: 'notice', loadChildren: './user/notice/notice.module#NoticeModule'},
+  {path: 'contact', loadChildren: './user/contact-us/contact-us.module#ContactUsModule'},
 ];
 
 @NgModule({

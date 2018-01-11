@@ -5,7 +5,7 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'user-msg',
-  templateUrl: 'user-msg.component.html',
+  templateUrl: './user-msg.component.html',
 })
 export class UserMsgComponent implements OnInit {
   user_data = {
