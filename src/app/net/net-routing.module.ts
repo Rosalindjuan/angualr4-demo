@@ -1,9 +1,9 @@
 import { NgModule }                      from '@angular/core';
 import { RouterModule, Routes }          from '@angular/router';
-import {ContactUsComponent}              from "./contact-us.component";
+import {NetComponent} from "./net.component";
 
 const orderRoutes: Routes = [
-  {path: '', component: ContactUsComponent, data: {title: '联系兆晶'}},
+  {path: '', component: NetComponent, data: {title: '滤网'}},
 ];
 
 @NgModule({
@@ -14,4 +14,4 @@ const orderRoutes: Routes = [
     RouterModule
   ],
 })
-export class ContactUsRoutingModule {}
+export class NetRoutingModule {}

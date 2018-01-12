@@ -1,0 +1,78 @@
+.tel {
+  float: right; }
+
+.font-size__14 {
+  text-align: center;
+  color: #F12C20;
+  padding: 10px 15px;
+  background: #fff; }
+
+.weui-cells {
+  margin-top: 8px;
+  margin-bottom: 8px; }
+  .weui-cells .weui-cell.background {
+    background-color: #FBFBFB; }
+  .weui-cells :after {
+    height: 0; }
+  .weui-cells .weui-media-box {
+    padding-left: 45px; }
+    .weui-cells .weui-media-box.border-bottom-line {
+      padding-bottom: 0; }
+      .weui-cells .weui-media-box.border-bottom-line .weui-media-box__bd {
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e5e5e5; }
+    .weui-cells .weui-media-box:before {
+      content: "";
+      position: absolute;
+      top: 21px;
+      left: 15px;
+      width: 16px;
+      height: 20px;
+      display: block;
+      border: 0;
+      -webkit-transform-origin: initial;
+      transform-origin: initial;
+      -webkit-transform: inherit;
+      transform: inherit;
+      background-image: url("../../../assets/img/icons-sdc7b7beb53.png");
+      background-repeat: no-repeat;
+      background-size: 53px 1753.5px;
+      background-position: 0px -100px; }
+    .weui-cells .weui-media-box:nth-child(2):before {
+      background-position: 0px -498px; }
+    .weui-cells .weui-media-box .weui-media-box__desc {
+      color: #4D4D4D; }
+
+.settime {
+  padding: 20px 15px;
+  color: #a0a0a0;
+  font-size: 11px;
+  line-height: 1.5; }
+
+.weui-tab {
+  padding-bottom: 53px; }
+
+.weui-footer_fixed-bottom {
+  border-top: 1px solid #e5e5e5;
+  background-color: #F8F8FA;
+  bottom: 0;
+  height: 53px; }
+  .weui-footer_fixed-bottom .weui-footer__links {
+    height: 45px;
+    padding: 8px 15px; }
+  .weui-footer_fixed-bottom .weui-btn_plain-primary {
+    float: right;
+    width: 90px;
+    font-size: 14px;
+    color: #1aad19;
+    margin-left: 10px; }
+  .weui-footer_fixed-bottom .weui-btn + .weui-btn, .weui-footer_fixed-bottom .query-logistics {
+    margin-top: 0;
+    color: #353535;
+    border: 1px solid #353535; }
+  .weui-footer_fixed-bottom .hidden {
+    display: none; }
+  .weui-footer_fixed-bottom .show {
+    display: block; }
+
+/*# sourceMappingURL=order-detail.component.css.map */

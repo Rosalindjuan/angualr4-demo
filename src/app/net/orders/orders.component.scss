@@ -1,0 +1,46 @@
+@import '../../src/sass/background';
+
+.weui-cells {
+  display: block;
+  margin-top: 14px;
+  color: $color-gray;
+  .weui-cell.background {
+    background-color: #fcfcfc;
+    margin-bottom: 5px;
+  }
+  &:first-child {
+    margin-top:0;
+  }
+  &:before ,.weui-cell:before{
+    content: none;
+  }
+}
+
+.weui-cell__hd {
+  position: relative;
+  margin-right: .8em;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  img {
+    width: 100%;
+    max-height: 100%;
+    vertical-align: top;
+  }
+}
+
+.font-size__14 {
+  .weui-cell__bd {
+    font-size: $font-base-size;
+    color: $color-red-font;
+  }
+}
+.weui-cell__bd {
+  font-size: 13px;
+  color: $color-gray;
+}
+.weui-cell__ft {
+  font-size: $font-small-size;
+  color: $color-gray;
+}

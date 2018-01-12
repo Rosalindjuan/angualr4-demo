@@ -1,0 +1,87 @@
+.weui-tab {
+  padding-bottom: 65px; }
+
+.weui-cells {
+  margin-top: 13px;
+  font-size: 14px; }
+  .weui-cells:first-child {
+    margin-top: 0; }
+    .weui-cells:first-child .weui-cell__hd {
+      margin-right: 15px;
+      width: 15px;
+      height: 18px;
+      background-image: url("../../../assets/img/icons-sdc7b7beb53.png");
+      background-repeat: no-repeat;
+      background-size: 53px 1753.5px;
+      background-position: 0 -70px; }
+    .weui-cells:first-child .weui-cell__bd > p:first-child {
+      padding-right: 10px; }
+    .weui-cells:first-child .weui-cell__bd > p:last-child {
+      margin-top: 12px;
+      font-size: 13px; }
+  .weui-cells .weui-cell {
+    padding: 18px 15px; }
+    .weui-cells .weui-cell:before {
+      left: 0; }
+  .weui-cells .weui-cell__ft {
+    color: #333; }
+
+.cart .weui-cell__bd {
+  font-size: 16px; }
+.cart .weui-flex__item:before {
+  display: inline-block;
+  content: "";
+  margin-right: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #07B905;
+  vertical-align: middle; }
+
+.message .weui-cell {
+  align-items: flex-start;
+  -webkit-align-items: flex-start; }
+.message .price {
+  margin: 0; }
+
+.price {
+  margin: 0 10px; }
+
+.weui-footer_fixed-bottom {
+  bottom: 0;
+  border-top: 1px solid #d9d9d9; }
+
+.weui-footer__links {
+  background-color: #f7f7fa; }
+  .weui-footer__links > .weui-flex__item {
+    text-align: left;
+    margin: 0;
+    margin-left: 15px; }
+    .weui-footer__links > .weui-flex__item .shopping-mag {
+      display: inline-block;
+      padding: 12px 0;
+      margin-left: 12px;
+      color: #000;
+      font-size: 16px;
+      vertical-align: middle; }
+      .weui-footer__links > .weui-flex__item .shopping-mag > div > i {
+        color: #F12C20;
+        font-style: normal; }
+        .weui-footer__links > .weui-flex__item .shopping-mag > div > i > span {
+          margin: 0 3px;
+          font-size: 12px; }
+      .weui-footer__links > .weui-flex__item .shopping-mag > p {
+        font-size: 10px;
+        color: #777777; }
+  .weui-footer__links > .order {
+    margin-right: 0;
+    padding: 12px 43px;
+    background: #07B905;
+    font-size: 18px;
+    color: #fff; }
+    .weui-footer__links > .order:before {
+      border: none; }
+    .weui-footer__links > .order:active {
+      background: #058704; }
+
+/*# sourceMappingURL=settlement.component.css.map */

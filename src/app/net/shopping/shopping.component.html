@@ -1,0 +1,136 @@
+<div class="weui-tab slideIn">
+    <div class="weui-search-bar" id="searchBar">
+        <form class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <a class="weui-icon-search" href="javascript:;" (click)="getSearchResult()"></a>
+                <input [(ngModel)]="searchContent" type="text" name="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" #search>
+                <a href="javascript:;" class="weui-icon-clear" id="searchClear" (click)="searchContent='';search.focus();"></a>
+            </div>
+            <label *ngIf="!searchInput" class="weui-search-bar__label" id="searchText" (click)="searchInput=true;searchResult = false;search.focus();">
+                <i class="weui-icon-search"></i>
+                <span>搜索</span>
+            </label>
+        </form>
+        <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel" [style.display]="searchInput ? 'block' : 'none'"  (click)="searchInput=false;searchContent='';searchParts=[]">取消</a>
+    </div>
+        <ul *ngIf="!searchInput" class="weui-cells search-results"
+        infinite-scroll
+            [infiniteScrollDistance]="2"
+            [infiniteScrollThrottle]="500"
+            (scrolled)="onScrollDown()">
+            <li *ngFor="let part of parts" class="weui-cell">
+                <a class="weui-cell__hd"><img src="{{ part.url }}" alt=""></a>
+                <div class="weui-cell__bd">
+                    <p class="ellipsis">{{ part.name }}</p>
+                    <div class="weui-flex">
+                        <div class="weui-flex__item price"><span>¥</span>{{ part.price }}</div>
+                        <div class="number-control">
+                            <a *ngIf="part.quantity!='0'" href="javascript:void(0);" class="reduce" (click)="changeQuantity(part.id,'reduce')"></a>
+                            <span *ngIf="part.quantity!='0'" class="number">{{ part.quantity }}</span>
+                            <a href="javascript:void(0);" class="add" (click)="changeQuantity(part.id,'add')"></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <article _ngcontent-cnj-11="" class="weui-article" *ngIf="!parts">
+            <h1 _ngcontent-cnj-11="">还没有商品</h1>
+        </article>
+        <div class="weui-loadmore loadmore" *ngIf="loadmore">
+            <i class="weui-loading"></i>
+            <span class="weui-loadmore__tips">正在加载</span>
+        </div>
+
+    <div *ngIf="searchInput" id="search-result">
+        <div *ngIf="searchResult" class="no-result">无搜索结果</div>
+        <ul class="weui-cells">
+            <li *ngFor="let part of searchParts" class="weui-cell">
+                <a class="weui-cell__hd"><img src="{{ part.url }}" alt=""></a>
+                <div class="weui-cell__bd">
+                    <p class="ellipsis">{{ part.name }}</p>
+                    <div class="weui-flex">
+                        <div class="weui-flex__item price"><span>¥</span>{{ part.price }}</div>
+                        <div class="number-control">
+                            <a *ngIf="part.quantity!='0'" href="javascript:void(0);" class="reduce" (click)="changeQuantity(part.id,'reduce')"></a>
+                            <span *ngIf="part.quantity!='0'" class="number">{{ part.quantity }}</span>
+                            <a href="javascript:void(0);" class="add" (click)="changeQuantity(part.id,'add')"></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+<div *ngIf="slideShow">
+    <div class="weui-mask" id="iosMask" [ngClass]="{'opacityInt':slide,'opacityOut':!slide}" (click)="changeSlideHide()" style="opacity: 1;"></div>
+    <div class="weui-actionsheet weui-actionsheet_toggle" id="iosActionsheet">
+        <div [ngClass]="{'slideIn-vertical':slide,'slideOut-vertical':!slide}">
+            <div class="shopping-icon"><span class="weui-badge" style="position: absolute;top: 0px;right: -12px;">{{ cartMsg.count }}</span><span class="triangle"></span></div>
+            <div class="weui-actionsheet__title weui-flex">
+                <span class="weui-flex__item">购物车</span>
+                <span class="clean" (click)="warning=true;">清空</span>
+            </div>
+            <ul class="weui-actionsheet__menu">
+                <li *ngFor="let partCart of carts" class="weui-actionsheet__cell weui-flex">
+                    <span class="weui-flex__item ellipsis">{{ partCart.name }}</span>
+                    <div class="price"><span>¥</span>{{ partCart.total }}</div>
+                    <div class="number-control">
+                        <a href="javascript:void(0);" class="reduce" (click)="changeQuantity(partCart.id,'reduce')"></a>
+                        <span class="number">{{ partCart.quantity }}</span>
+                        <a href="javascript:void(0);" class="add" (click)="changeQuantity(partCart.id,'add')"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="weui-actionsheet__action">
+            <div class="weui-footer__links weui-flex">
+                <a class="weui-flex__item weui-footer__link" href="javascript:void(0);" (click)="changeSlideHide()">
+                  <div class="shopping-mag">
+                      <div>合计<i><span>¥</span>{{ cartMsg.total }}</i></div>
+                      <p>另需运费&nbsp;¥0</p>
+                  </div>
+                </a>
+                <a class="order weui-footer__link" (click)="linkSettlement()">结算</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="weui-footer weui-footer_fixed-bottom slideIn">
+    <div class="weui-footer__links weui-flex">
+        <a class="weui-flex__item weui-footer__link" href="javascript:void(0);" (click)="changeSlideShow()">
+          <div class="shopping-icon"><span *ngIf="count" class="weui-badge" style="position: absolute;top: 0px;right: -12px;">{{ cartMsg.count }}</span></div>
+          <div class="shopping-mag">
+              <div>合计<i><span>¥</span>{{ cartMsg.total }}</i></div>
+              <p>另需运费&nbsp;¥0</p>
+          </div>
+          </a>
+        <a href="javascript:;" class="order weui-footer__link" (click)="linkSettlement()">结算</a>
+    </div>
+</div>
+
+
+<div *ngIf="warning" class="js_dialog" id="iosDialog1">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd"><strong class="weui-dialog__title">确认要清空购物车吗?</strong></div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" (click)="warning=false;">取消</a>
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="cleanCart();warning=false;">确认</a>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="nullShow" class="js_dialog" id="iosDialog2" style="opacity: 1;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd">您,还没有选购商品?</div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="nullShow=false">请,选购</a>
+        </div>
+    </div>
+</div>

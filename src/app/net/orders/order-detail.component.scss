@@ -1,0 +1,100 @@
+@import '../../src/sass/background';
+
+.tel {
+  float: right;
+}
+.font-size__14 {
+  text-align: center;
+  color: $color-red-font;
+  padding: 10px 15px;
+  background: #fff;
+}
+.weui-cells {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  .weui-cell.background {
+    background-color: #FBFBFB;
+  }
+  :after {
+    height: 0;
+  }
+  //
+  .weui-media-box {
+    padding-left: 45px;
+    &.border-bottom-line {
+      padding-bottom: 0;
+      .weui-media-box__bd {
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e5e5e5;
+      }
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 21px;
+      left: 15px;
+      width: 16px;
+      height: 20px;
+      display: block;
+      border: 0;
+      -webkit-transform-origin: initial;
+      transform-origin: initial;
+      -webkit-transform: inherit;
+      transform: inherit;
+      @include backgroundIcon();
+      background-position: 0px -100px;
+    }
+    &:nth-child(2):before {
+      background-position: 0px -498px;
+    }
+    .weui-media-box__desc {
+      color: $color-gray;
+    }
+  }
+}
+
+//创建时间
+.settime  {
+  padding: 20px 15px;
+  color: #a0a0a0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+// 底部高
+$footer-height:53px;
+$padding-top: 8px;
+$footer-bg: #F8F8FA;
+.weui-tab{
+	padding-bottom: $footer-height;
+}
+//底部 付款 取消
+.weui-footer_fixed-bottom {
+  border-top: 1px solid #e5e5e5;
+  background-color: $footer-bg;
+  bottom: 0;
+  height: $footer-height;
+  .weui-footer__links {
+    height: $footer-height - $padding-top;
+    padding: $padding-top 15px;
+  }
+  .weui-btn_plain-primary {
+    float: right;
+    width: 90px;
+    font-size: $font-base-size;
+    color: #1aad19;
+    margin-left: 10px;
+  }
+  .weui-btn+.weui-btn ,.query-logistics {
+    margin-top: 0;
+    color: #353535;
+    border: 1px solid #353535;
+  }
+  .hidden {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+}

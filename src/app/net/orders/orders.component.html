@@ -1,0 +1,45 @@
+<div class="weui-tab slideIn search-results"
+     infinite-scroll
+     [infiniteScrollDistance]="2"
+     [infiniteScrollThrottle]="500"
+     (scrolled)="onScrollDown()">
+  <div *ngFor="let order of orders" class="weui-cells">
+    <a [routerLink]="[order.id]" class="weui-cell weui-cell_access">
+      <div class="weui-cell__bd vertical-align__middle">{{ order.time }}</div>
+      <div class="weui-cell__ft"></div>
+    </a>
+    <div *ngFor="let part of order.details" class="weui-cell background">
+      <div class="weui-cell__hd">
+        <img src="{{ part.url }}"/>
+      </div>
+      <div class="weui-cell__bd">
+        <p>{{ part.name }}</p>
+        <p style="height: 20px;"></p>
+      </div>
+      <div class="weui-cell__ft">
+        <p>￥ {{ part.price }}</p>
+        <p>x {{ part.quantity }}</p>
+      </div>
+    </div>
+    <div class="weui-cell background">
+      <div class="weui-cell__bd vertical-align__middle">运费</div>
+      <div class="weui-cell__ft">{{ order.freight }}</div>
+    </div>
+    <div class="weui-cell font-size__14">
+      <div class="weui-cell__bd vertical-align__middle" *ngIf="order.status == 1">
+        <span>已付款</span></div>
+      <div class="weui-cell__bd vertical-align__middle" *ngIf="order.status == 0">
+        <span>未付款</span></div>
+      <div class="weui-cell__ft">
+        <span>共{{ order.quantity }}件</span>  <span>合计 ￥ {{ order.total }}</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="loadmore" class="weui-loadmore loadmore">
+    <i class="weui-loading"></i>
+    <span class="weui-loadmore__tips">正在加载</span>
+  </div>
+  <div *ngIf="noData" class="weui-loadmore weui-loadmore_line" style="position: static;top: inherit;left: inherit;margin-bottom: 0">
+    <span class="weui-loadmore__tips" style="background-color: #f4f4f4;">暂无数据</span>
+  </div>
+</div>

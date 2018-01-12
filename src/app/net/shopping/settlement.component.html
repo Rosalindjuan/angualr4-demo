@@ -1,0 +1,66 @@
+<div class="weui-tab slideIn">
+    <div class="weui-cells">
+        <a class="weui-cell weui-cell_access" (click)="tolink('receiving/list')" >
+            <div class="weui-cell__hd"></div>
+            <div class="weui-cell__bd">
+                <p class="weui-flex"><span class="weui-flex__item">收货人:{{ contact.name }}</span> {{ contact.phone }}</p>
+                <p>收货地址:{{ contact.city }}{{ contact.full }}</p>
+                <input type="text" style="display: none;" [(ngModel)]="contact.name" name="name">
+                <input type="text" style="display: none;" [(ngModel)]="contact.phone" name="phone">
+                <input type="text" style="display: none;" [(ngModel)]="contact.city" name="city">
+                <input type="text" style="display: none;" [(ngModel)]="contact.full" name="full">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </a>
+    </div>
+
+    <ul class="weui-cells cart">
+        <li class="weui-cell">购物车</li>
+        <li *ngFor="let cartPart of carts" class="weui-cell weui-flex">
+            <div class="weui-cell__bd weui-flex__item ellipsis">{{ cartPart.name }}</div>
+            <div class="weui-cell__ft">
+                <div class="price"><span>¥</span>{{ cartPart.price }}</div>x&nbsp;{{ cartPart.quantity }}
+            </div>
+        </li>
+    </ul>
+
+    <div class="weui-cells message">
+        <div class="weui-cell weui-flex">
+            <div class="weui-cell__bd weui-flex__item">运费</div>
+            <div class="weui-cell__ft">快递
+                <div class="price"><span>¥</span>{{ freight }}</div>
+                <input type="text" style="display: none;" [(ngModel)]="freight" name="freight">
+            </div>
+        </div>
+        <div class="weui-cell weui-flex">买家留言:<textarea class="weui-flex__item" name="message" [(ngModel)]="message" id="" cols="30" rows="4" placeholder="选填" ></textarea></div>
+    </div>
+</div>
+
+<div class="weui-footer weui-footer_fixed-bottom slideIn">
+    <div class="weui-footer__links weui-flex">
+        <a class="weui-flex__item weui-footer__link" href="javascript:void(0);">
+            <div class="shopping-mag">
+                <div>合计<i><span>¥</span>{{ total }}</i></div>
+            </div>
+        </a>
+        <a  href="javascript:void(0);" (click)="sureOrder()" class="order weui-footer__link">确定下单</a>
+    </div>
+</div>
+<div class="js_dialog" id="iosDialog2" *ngIf="noDetails">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd">您,还没有选购商品?</div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" (click)="noDetails=false;control=true;"  class="weui-dialog__btn weui-dialog__btn_primary">请,选购</a>
+        </div>
+    </div>
+</div>
+<div *ngIf="contact_empty" class="js_dialog" id="iosDialog3">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__hd">您,还没有填写收货信息?</div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" (click)="contact_empty=false;control=true;">请,填写</a>
+        </div>
+    </div>
+</div>
